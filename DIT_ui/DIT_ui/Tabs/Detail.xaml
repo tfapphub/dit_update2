@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIT_ui.Tabs.Detail"
+             BackgroundColor="#082631">
+    <!-->Bu tasarı gecici, bu yüzden fırsat buldugun bir anda değiştir.<!-->
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="White" HasShadow="True" Margin="20,80,20,50">
+                <StackLayout Orientation="Vertical">
+                    <StackLayout>
+                        <Image x:Name="img_ürün" WidthRequest="300" Aspect="AspectFit"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="lb_adi" FontAttributes="Bold" FontFamily="{StaticResource BebasNeue-Regular}" FontSize="30" TextColor="Black"/>
+                        <Label x:Name="lb_miktar" FontFamily="{StaticResource BebasNeue-Regular}" FontSize="30" TextColor="Silver"/>
+                        <Label x:Name="lb_gram" FontFamily="{StaticResource BebasNeue-Regular}" FontSize="30" TextColor="Silver"/>
+                        <Label x:Name="lb_fiyat" FontAttributes="Bold" FontFamily="{StaticResource BebasNeue-Regular}" FontSize="30" TextColor="Black"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Button Text="Sepete Ekle" CornerRadius="10" FontFamily="{StaticResource BebasNeue-Regular}" BackgroundColor="#082631" TextColor="White" FontSize="25"/>
+                        <Button Text="Miktar Gir" CornerRadius="10" FontFamily="{StaticResource BebasNeue-Regular}" BackgroundColor="#082631" TextColor="White" FontSize="25"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Image Source="DIT.png" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" Aspect="AspectFit" Margin="0,0,0,10"/>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

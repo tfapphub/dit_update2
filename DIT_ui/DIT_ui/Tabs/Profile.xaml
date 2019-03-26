@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIT_ui.Tabs.Profile"
+             BackgroundColor="#082631">
+    <ContentPage.Title>Profil</ContentPage.Title>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Margin="-20,20,0,0">
+                    <Image Source= "LogTez.png" WidthRequest="200" BackgroundColor="Transparent" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Margin="0,20,0,0">
+                    <Label Text="Hoşgeldiniz" FontSize="30" FontFamily="{StaticResource BebasNeue-Regular}" TextColor="White"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label x:Name="lb_user" Text="Tarık Kaya" FontSize="50" FontFamily="{StaticResource BebasNeue-Regular}" TextColor="White"  VerticalOptions="Center" Margin="0,10,0,0" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Margin="40,20,40,20">
+                    <Button x:Name="btn_start" Text="Alışverişe Başla" FontSize="30" CornerRadius="40" HeightRequest="60" BackgroundColor="White" FontFamily="{StaticResource BebasNeue-Regular}" TextColor="#082631" Clicked="Btn_start_OnClicked"/>
+                </StackLayout>
+
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DIT_ui.Models;assembly=DIT_ui"
+             x:Class="DIT_ui.Tabs.Cart"
+             BackgroundColor="#082631">
+    <ContentPage.Title>Sepet</ContentPage.Title>
+
+    <ContentPage.BindingContext>
+        <models:UrunListe/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout >
+            <SearchBar  x:Name="searchText"  BackgroundColor="#082631" Placeholder="Ürün ara..." PlaceholderColor="White" FontSize="20" TextColor="White" TextChanged="SearchBar_OnTextChanged" Opacity="1" HeightRequest="40"></SearchBar>
+            <ListView x:Name="lv_ürün" HasUnevenRows="true" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Ekle" Clicked="Btn_güncelle_OnClicked"/>
+                                <MenuItem Text="Sil" Clicked="Btn_sil_OnClicked"/>
+                            </ViewCell.ContextActions>
+
+                            <Frame BackgroundColor="White" HasShadow="True" Margin="15,10,15,10" >
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0">
+                                        <Image Source="{Binding fotoUrl}"  VerticalOptions="FillAndExpand" WidthRequest="70" Aspect="AspectFit" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Vertical" Margin="10,5,20,0" Grid.Column="1">
+                                        <Label Text="{Binding ürünAdi}"  FontFamily="{StaticResource BebasNeue-Regular}" FontSize="30" TextColor="Black"/>
+                                        <Label Text="{Binding aciklama,StringFormat='Gramaj: {0}'}"  FontFamily="{StaticResource Oswald}" FontSize="15" TextColor="Silver"/>
+                                        <Label Text="{Binding miktar, StringFormat='Adet: {0}'}"  FontFamily="{StaticResource Oswald}" FontSize="15" TextColor="Silver"/>
+                                    </StackLayout>
+
+                                    <StackLayout  Grid.Column="2" VerticalOptions="End" HorizontalOptions="EndAndExpand">
+                                        <Label Text="{Binding fiyat, StringFormat='{0} TL'}" FontAttributes="Bold" FontFamily="{StaticResource Oswald}" VerticalTextAlignment="End" HorizontalTextAlignment="End" FontSize="30" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <Frame BackgroundColor="#082631" HasShadow="True"  Margin="10,0,10,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout  Grid.Column="0" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="lb_tutar" FontSize="28" FontFamily="{StaticResource Oswald}" HorizontalTextAlignment="Center" Margin="0,-5,0,0" TextColor="White" Text="ÖDENECEK TUTAR= 24TL"/>
+                    </StackLayout>
+
+                    <ImageButton x:Name="btn_ok" Grid.Column="1" VerticalOptions="End"  Source="success.png" HeightRequest="50" Margin="20,0,20,0"  Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="End" Clicked="Btn_ok_OnClicked"/>
+                    <ImageButton x:Name="btn_addCart" Grid.Column="2" VerticalOptions="End" Source="plus.png" HeightRequest="50" Aspect="AspectFit" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Clicked="Btn_addCart_OnClicked"/>
+
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
